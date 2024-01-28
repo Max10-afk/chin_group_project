@@ -43,7 +43,7 @@ class MorganFPGen(BaseFPGen):
     def __init__(self):
         self.fp_size = 4096
         self.fp_name = "MorganFP"
-        self.fpgen = AllChem.GetMorganGenerator(radius=5,fpSize=self.fp_size)
+        self.fpgen = rdFingerprintGenerator.GetMorganGenerator(radius=5,fpSize=self.fp_size)
 class MACCSFPGen(BaseFPGen):
     def __init__(self):
         self.fp_size = 167
