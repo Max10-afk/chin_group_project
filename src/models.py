@@ -1,6 +1,6 @@
 from sklearn.gaussian_process import GaussianProcessRegressor,kernels
 from joblib import load
-
+import pandas as pd
 def construct_gaussian_kernel():
     rbf_kernel = kernels.RBF(1.0, length_scale_bounds=(1e-3, 1e5))*1.0
     noise_kernel = 1* kernels.WhiteKernel(noise_level=1, noise_level_bounds=(1e-1, 1e2))
@@ -20,4 +20,5 @@ def construct_prediction_pipeline(pretrained_model=None):
         return load(pretrained_model)
 def predict_toxicity(features,pretrained_model=None):
     model = construct_prediction_pipeline(pretrained_model)
-    return model.predict(features)
+    predicted_toxicity = pd.DataFrame(model.predict(features),columns=["pLC50"])
+    return predicted_toxicity
