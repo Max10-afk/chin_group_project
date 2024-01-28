@@ -20,5 +20,5 @@ def construct_prediction_pipeline(pretrained_model=None):
         return load(pretrained_model)
 def predict_toxicity(features,pretrained_model=None):
     model = construct_prediction_pipeline(pretrained_model)
-    predicted_toxicity = pd.DataFrame(model.predict(features),columns=["pLC50"])
+    predicted_toxicity = pd.DataFrame(model.predict(features), columns=["pred_pLC50"])
     return predicted_toxicity
