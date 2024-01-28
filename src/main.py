@@ -26,7 +26,4 @@ def main():
     predicted_toxicity.insert(0, "compound_id", predicted_toxicity.index.to_list())
     predicted_toxicity.to_csv(TOX_TARGET_PATH)
 if __name__=="__main__":
-    #pre_processed_df = load_and_preprocess("data/chin-qspr-dataset.sdf",COLUMNS_TO_REMOVE_PATH)
-    #predicted_toxicity = predict_toxicity(pre_processed_df,FITTED_MODEL_PATH)
-    #predicted_toxicity.to_csv(TOX_TARGET_PATH)
     main()
